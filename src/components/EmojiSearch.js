@@ -6,7 +6,7 @@ export default function EmojiSearch({onSearch}){
     const handleChange=(e)=>{
         const entry = e.target.value;
         setValue(entry);
-        onSearch(e)
+        onSearch(entry);
     }
 
     return <input type='text' onChange={handleChange} value={value}/>;
