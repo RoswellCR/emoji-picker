@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-export default function EmojiSearch({onSearch}){
-    const [value, setValue] = useState('')
-    
-    const handleChange=(e)=>{
-        const entry = e.target.value;
-        setValue(entry);
-        onSearch(entry);
-    }
+export default function EmojiSearch({ onSearch }) {
+  const [valueInp, setValueInp] = useState('');
 
-    return <input type='text' onChange={handleChange} value={value}/>;
+  const handleChange = (e) => {
+    //console.log(e.target.value);
+    setValueInp(e.target.value);
+    onSearch(e);
+  };
+
+  return <input type="text" onChange={handleChange} placeholder="search"/>;
 }

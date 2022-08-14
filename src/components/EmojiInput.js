@@ -6,12 +6,13 @@ export default function EmojiInput(){
     
     const handleClick=()=>{
         refInput.current.focus();
+        refInput.current.value='';
     }
 
     return (
         <div>
             <input ref={refInput} />
-            <button onClick={handleClick}>Button</button>
+            <button onClick={handleClick}>Clear</button>
             <EmojiPicker ref={refInput}/>
         </div>
         )

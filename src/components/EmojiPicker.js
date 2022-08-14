@@ -21,12 +21,14 @@ export function EmojiPicker(props, inputRef) {
 
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
+    //console.log(query);
     if (!!query) {
       //si existe y no es vacio
       const search = EmojiList.filter(
-        (emoji) => emoji.name.includes(query) || emoji.keywords.includes(query)
-      );
-
+        emoji => {  
+            return( emoji.name.toLowerCase().includes(query) || emoji.keywords.toLowerCase().includes(query))
+        });
+      console.log(search);
       setEmojis(search);
     } else {
       setEmojis(EmojiList);
@@ -34,7 +36,7 @@ export function EmojiPicker(props, inputRef) {
   };
 
   const handleClickOpen = () => {
-    setIsOpen(!isOpen);
+     setIsOpen(!isOpen);
   };
 
   const handleOnClickEmoji = (emoji) => {
@@ -56,7 +58,7 @@ export function EmojiPicker(props, inputRef) {
         <div>
           <EmojiSearch onSearch={handleSearch} />
           <div>
-            {EmojiList.map((emoji) => (
+            {emojis.map((emoji) => (
               <EmojiButton
                 key={emoji.keywords}
                 emoji={emoji}

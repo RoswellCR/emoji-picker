@@ -1,4 +1,3 @@
-import emojiPicker from "./EmojiPicker";
 
 export default function EmojiButton({emoji, onClick}){
     const handleClick=()=>{
